@@ -1,0 +1,15 @@
+<div class="clearfix">
+  <div class="ngdialog-message">
+
+    <div class="alert alert-danger" role="alert" ng-hide="error === undefined">{{error}}</div>
+  <h5>
+      Are you sure you want to delete this {{entity}}?</h5>
+      <span>This action is irreversible
+  </span><br>
+  <input  type="checkbox">Don't ask me again
+</div>
+  <div class="ngdialog-buttons mt">
+      <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm()">Delete</button>
+      <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog(0)">Cancel</button>
+<div>
+<div>

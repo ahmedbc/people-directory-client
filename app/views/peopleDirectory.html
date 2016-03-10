@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col-md-4">
+      <div class="jumbotron">
+      <h4 class="text-left">Companies</h4>
+      <div class="input-group">
+          <input type="text"
+                 ng-model="searchCompany"
+                 class="form-control"
+                 placeholder="Search a company" >
+      </div>
+      <div class="dtable">
+        <table class="table table-hover table-striped">
+            <tr ng-repeat="company in companies | filter: searchCompany">
+                <td ng-bind="company.name"
+                    ng-click="selectCompany(company.id)"
+                    ng-class="{active: selectedCompany == company.id}"></td>
+            </tr>
+        </table>
+      </div>
+      <div class="controls clearfix">
+        <a class="btn btn-default pull-right"
+            ng-click="removeCompanyModal()"
+            ng-disabled="selectedCompany === undefined">
+            <span class="glyphicon glyphicon-remove-sign text-danger"></span>Remove</a>
+      </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="jumbotron">
+      <h4 class="text-left">Departments</h4>
+      <div class="input-group">
+          <input type="text"
+                 ng-model="searchDepartment"
+                 class="form-control"
+                 placeholder="Search a department" >
+      </div>
+      <div class="dtable">
+        <table class="table table-hover table-striped" ng-hide="selectedCompany === undefined">
+            <tr ng-repeat="department in companyDepartments | filter: searchDepartment">
+                <td ng-bind="department.name"
+                    ng-click="selectDepartment(department.id)"
+                    ng-class="{active: selectedDepartment == department.id}"></td>
+            </tr>
+        </table>
+      </div>
+      <div class="controls clearfix">
+        <a class="btn btn-default pull-right"
+            ng-click="removeDepartmentModal()"
+              ng-disabled="selectedDepartment === undefined">
+              <span class="glyphicon glyphicon-remove-sign text-danger"></span>Remove</a>
+      </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+      <div class="jumbotron">
+      <h4 class="text-left">Employees</h4>
+      <a class="btn btn-default pull-right"
+          ng-click="addEmployeeModal()"><span class="glyphicon glyphicon-plus-sign text-primary"></span>Add</a>
+      <div class="input-group">
+          <input type="text"
+                 ng-model="searchEmployee"
+                 class="form-control"
+                 placeholder="Search a employees" >
+
+      </div>
+      <div class="dtable">
+        <table class="table table-hover table-striped" ng-hide="selectedDepartment === undefined">
+            <tr ng-repeat="employee in departmentEmployees | filter: searchEmployee">
+                <td ng-bind="employee.name"
+                    ng-click="selectEmployee(employee.id)"
+                    ng-class="{active: selectedEmployee == employee.id}"></td>
+            </tr>
+        </table>
+      </div>
+      <div class="controls clearfix">
+        <a class="btn btn-default pull-right"
+            ng-click="removeEmployeeModal()"
+              ng-disabled="selectedEmployee === undefined"><span class="glyphicon glyphicon-remove-sign text-danger"></span>Remove</a>
+      </div>
+      </div>
+    </div>
+  </div>

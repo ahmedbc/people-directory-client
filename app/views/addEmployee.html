@@ -1,0 +1,66 @@
+<div class="clearfix">
+  <div class="ngdialog-message">
+    <h3>Add employee</h3>
+    <div class="alert alert-danger" role="alert" ng-hide="error === undefined">{{error}}</div>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Personal Informations</h4>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Login :</label>
+      <input type="text" class="form-control" placeholder="Name" ng-model="name">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Email :</label>
+      <input type="email" class="form-control" placeholder="Email" ng-model="email">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Phone :</label>
+      <input type="text" class="form-control" placeholder="Phone" ng-model="phone" maxlength="25">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Cellulaire Phone :</label>
+      <input type="text" class="form-control" placeholder="cellulaire Phone" ng-model="celPhone" maxlength="25">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Location :</label>
+      <input type="text" class="form-control" placeholder="Location" ng-model="location">
+    </div>
+    </div>
+    <div class="col-md-6">
+      <h4>professional Informations</h4>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Title :</label>
+    <input type="text" class="form-control" placeholder="Name" ng-model="title">
+    </div>
+    <div class="form-group">
+    <label for="exampleInputPassword1">Company :</label>
+    <select name="companyId"
+              ng-options="company.id as company.name for company in companies track by company.id"
+                class="form-control"
+                  ng-model="companyId"
+                    ng-change="loadDepartments()"></select>
+    </div>
+    <div class="form-group">
+    <label for="exampleInputPassword1">Department :</label>
+    <select name="departmentId"
+              ng-options="department.id as department.name for department in companyDepartments track by department.id"
+                class="form-control"
+                  ng-model="departmentId"></select>
+
+    </div>
+    <div class="form-group">
+    <label for="exampleInputPassword1">Start date (yyyy-MM-dd):</label>
+    <input type="text" class="form-control"placeholder="Start date yyyy-MM-dd" pattern="\d{4}-d{1,2}-d{1,2}" ng-model="startDate" maxlength="25">
+    </div>
+    <div class="form-group">
+    <label for="exampleInputPassword1">End date (yyyy-MM-dd):</label>
+    <input type="text" class="form-control" placeholder="End date yyyy-MM-dd" pattern="\d{4}-d{1,2}-d{1,2}" ng-model="endDate">
+    </div>
+    </div>
+
+    </div>
+    <div class="ngdialog-buttons mt">
+        <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm()">Ok</button>
+  <div>
+</div>
+<div>
